@@ -1,0 +1,66 @@
+buildscript {
+    ext {
+        projectName = 'postal-code-service'
+        lombokVersion = '1.18.4'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.13.0')
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.1.3.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+    id 'war'
+    id 'com.palantir.docker' version '0.22.1'
+}
+
+group = 'springio'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-test")
+
+    compile("org.projectlombok:lombok:${lombokVersion}")
+    compile("org.liquibase:liquibase-core")
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+
+    runtime("com.h2database:h2")
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+}
+
+bootWar {
+    archiveName = "${projectName}.war"
+    from('../frontend/build') {
+        into '/'
+    }
+}
+
+bootWar.dependsOn ":frontend:npm_run_build"
+
+task unpack(type: Copy) {
+    dependsOn bootWar
+    from(zipTree(tasks.bootWar.outputs.files.singleFile))
+    into("build/dependency")
+}
+docker {
+    name "${project.group}/${projectName}"
+    copySpec.from(tasks.unpack.outputs).into("dependency")
+    buildArgs(['DEPENDENCY': "dependency"])
+}

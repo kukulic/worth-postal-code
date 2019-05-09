@@ -1,0 +1,75 @@
+:root {
+    --primary: #007bff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f6f8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}:root {
+     --primary: #007bff;
+ }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f6f8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.container-small {
+    max-width: 560px;
+    margin: auto;
+    padding-bottom: 24px;
+    background-color: lightgrey;
+}
+
+.header-title-large {
+    color: black;
+    font-size: 22px;
+    line-height: 20px;
+    flex: 1 1 auto;
+    padding: 16px 24px;
+    text-align:center;
+}
+
+.header-title-medium {
+    color: black;
+    font-size: 18px;
+    line-height: 20px;
+    flex: 1 1 auto;
+    padding: 16px 24px;
+    text-align:center;
+}
+
+.btn-small {
+    font-size: 12px;
+    line-height: 28px;
+    padding: 0 16px;
+    height: 28px;
+}
+
+.btn-space {
+    margin-right: 5px;
+}
+
+.btn-calculate {
+    padding-left: 15px;
+}
+
+.space-top-small {
+    margin-top: 16px;
+}
+
+.space-top-large {
+    margin-top: 32px;
+}
+
+.space-left-small {
+    margin-top: 16px;
+}
+
+.space-down-large {
+    margin-bottom: 32px;
+}

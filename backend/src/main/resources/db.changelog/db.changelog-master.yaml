@@ -1,0 +1,97 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Luka
+      changes:
+        - createTable:
+            tableName: outcodepostcodes
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: outcode
+                  type: varchar(8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lat
+                  type: decimal(18,15)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: lng
+                  type: decimal(18,15)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: Luka
+      changes:
+        - createTable:
+            tableName: postcodelatlng
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: postcode
+                  type: varchar(8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: decimal(18,15)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: longitude
+                  type: decimal(18,15)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 3
+      author: Luka
+      changes:
+         - createTable:
+            tableName: log_postcode_distance
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: post_code_1
+                  type: varchar(8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: post_code_2
+                  type: varchar(8)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: distance_km
+                  type: decimal(18,3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: insert_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+  - include:
+      file: sql/postcode-outcodes.sql
+  - include:
+      file: sql/ukpostcodes.sql

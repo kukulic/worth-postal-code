@@ -1,0 +1,4 @@
+rootProject.name = 'postal-code-service'
+include 'backend',
+        'frontend'
+
