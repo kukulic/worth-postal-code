@@ -6,6 +6,18 @@ Application for administration of postal offices in UK
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
  
+ 
+### Prerequisites
+
+Project lombok is used in project so it needs to be enabled in your IDE.
+For Intellij:
+
+First install project Lombok plugins
+File -> Settings -> Plugins
+
+Next enable annotation processing
+File -> Settings -> Annotation Processors -> check "Enable annotation processing" 
+ 
 ### Installing
 
 After making git clone next step will be to write in terminal
