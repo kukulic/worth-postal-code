@@ -13,6 +13,7 @@ import worth.util.Haversine;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class OutcodeServiceImpl implements OutcodeService {
@@ -57,7 +58,7 @@ public class OutcodeServiceImpl implements OutcodeService {
 
         logRepository.insertLog(firstOutcode, secondOutcode, distance);
 
-        return String.format("%.3f", distance);
+        return String.format(Locale.UK, "%.3f", distance);
     }
 
     private BigDecimal ditanceFromTwoOutcode(Outcode first, Outcode second) {

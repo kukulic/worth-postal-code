@@ -18,6 +18,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -62,7 +63,7 @@ public class FullPostcodeServiceImpl implements FullPostcodeService {
 
         logRepository.insertLog(firstFullPostcode, secondFullPostcode, distance);
 
-        return String.format(DISTANCE_FOUND, distance);
+        return String.format(Locale.UK, DISTANCE_FOUND, distance);
     }
 
     @Override
