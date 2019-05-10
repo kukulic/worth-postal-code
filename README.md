@@ -36,7 +36,7 @@ Next step is to run backend of project which will be running by default on port 
 gradlew bootrun
 ```
 
-After this in new terminal next line need to be execute for running frontend part which is run on port 3000 by default 
+After this, in new terminal, line below needs to be executed in order to run frontend by default on port 3000 
 
 ```bash
 npm run start --prefix frontend
