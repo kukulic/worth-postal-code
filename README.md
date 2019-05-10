@@ -1,1 +1,32 @@
-# worth-postal-code
+# Worth postal code
+
+Application for administration of postal offices in UK
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+ 
+### Installing
+
+After making git clone next step will be to write in terminal
+
+```bash
+gradlew build
+```
+
+This will download all dependencies for backend and frontend into your project
+
+### Running
+
+Next step is to run backend of project which will be running by default on port 8080
+
+```bash
+gradlew bootrun
+```
+
+After this in new terminal next line need to be execute for running frontend part which is run on port 3000 by default 
+
+```bash
+npm run start --prefix frontend
+```
+
