@@ -28,7 +28,7 @@ gradlew build
 
 This will download all dependencies for backend and frontend into your project
 
-### Running
+### Running from CMD
 
 Next step is to run backend of project which will be running by default on port 8080
 
@@ -42,3 +42,9 @@ After this in new terminal next line need to be execute for running frontend par
 npm run start --prefix frontend
 ```
 
+### Running with Docker
+
+```bash
+docker build -t worth-postal-code:latest .
+docker run -d  -p 8080:8080 worth-postal-code:latest
+```
